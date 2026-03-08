@@ -47,7 +47,11 @@ function convertToFileStat(
 	serverBase: string,
 	item: WebDAVResponse['multistatus']['response'][number],
 ): FileStat {
-	const props = item.propstat.prop
+	// propstat can be a single object or an array (e.g. Seafile returns multiple)
+	const propstat = Array.isArray(item.propstat)
+		? item.propstat.find((ps: any) => ps.prop) || item.propstat[0]
+		: item.propstat
+	const props = propstat?.prop || {}
 	const isDir = !isNil(props.resourcetype?.collection)
 	const href = decodeURIComponent(item.href)
 	const filename =
