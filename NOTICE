@@ -1,0 +1,22 @@
+NOTICE — Attribution and License Information
+=============================================
+
+This project (obsidian-webdav-sync) is a derivative work based on:
+
+  Original Project: obsidian-nutstore-sync
+  Original Authors: nutstore-dev, miaobuao, and contributors
+  Original Repository: https://github.com/nutstore/obsidian-nutstore-sync
+  Original License: GNU Affero General Public License v3.0 (AGPL-3.0)
+
+This derivative work is also licensed under AGPL-3.0, as required by the
+original license terms.
+
+Summary of Changes:
+- Removed Nutstore/坚果云-specific SSO (Single Sign-On) authentication
+- Removed Nutstore-specific Delta API for incremental sync
+- Made WebDAV server URL configurable (instead of hardcoded to Nutstore)
+- Adapted for generic WebDAV servers (Seafile, NextCloud, etc.)
+- Updated branding, i18n strings, and plugin metadata
+
+The core sync engine, including the three-layer conflict resolution
+(diff3 → diff-match-patch → mergeDigIn), is preserved from the original.

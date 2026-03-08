@@ -1,0 +1,10 @@
+{
+	"id": "webdav-sync",
+	"name": "WebDAV Sync",
+	"version": "0.1.0",
+	"minAppVersion": "0.15.0",
+	"description": "Sync your vault with any WebDAV server. Smart conflict resolution with three-way merge.",
+	"author": "shizi",
+	"authorUrl": "https://github.com/shizi",
+	"isDesktopOnly": false
+}
