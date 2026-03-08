@@ -11,14 +11,14 @@ import { fileStatToStatModel } from '~/utils/file-stat-to-stat-model'
 import { getTraversalWebDAVDBKey } from '~/utils/get-db-key'
 import logger from '~/utils/logger'
 import { uint8ArrayToArrayBuffer } from '~/utils/uint8array-to-arraybuffer'
-import type NutstorePlugin from '..'
+import type WebDAVSyncPlugin from '..'
 
 /**
  * Service for handling cache operations (save, restore, delete, list)
  */
 export default class CacheServiceV1 {
 	constructor(
-		private plugin: NutstorePlugin,
+		private plugin: WebDAVSyncPlugin,
 		private remoteCacheDir: string,
 	) {}
 
@@ -83,7 +83,10 @@ export default class CacheServiceV1 {
 			const webdav = await this.plugin.webDAVService.createWebDAVClient()
 			const filePath = join(this.remoteCacheDir, filename)
 
-			const fileExists = await webdav.exists(filePath).catch(() => false)
+			const fileExists = await webdav.exists(filePath).catch((e) => {
+				logger.error('Error checking file existence:', e)
+				return false
+			})
 			if (!fileExists) {
 				new Notice(i18n.t('settings.cache.restoreModal.fileNotFound'))
 				return Promise.reject(new Error('File not found'))
@@ -170,7 +173,10 @@ export default class CacheServiceV1 {
 			const webdav = await this.plugin.webDAVService.createWebDAVClient()
 			const dirExists = await webdav
 				.exists(this.remoteCacheDir)
-				.catch(() => false)
+				.catch((e) => {
+					logger.error('Error checking cache dir existence:', e)
+					return false
+				})
 			if (!dirExists) {
 				await webdav.createDirectory(this.remoteCacheDir, { recursive: true })
 				return []

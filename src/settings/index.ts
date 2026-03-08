@@ -39,9 +39,6 @@ export interface WebDAVSyncSettings {
 	language?: 'zh' | 'en'
 }
 
-// Keep backward compatibility aliases
-export type NutstoreSettings = WebDAVSyncSettings
-
 let pluginInstance: WebDAVSyncPlugin | null = null
 
 export function setPluginInstance(plugin: WebDAVSyncPlugin | null) {
@@ -118,7 +115,3 @@ export class WebDAVSyncSettingTab extends PluginSettingTab {
 		await this.accountSettings.hide()
 	}
 }
-
-// Keep backward compatibility alias
-export const NutstoreSettingTab = WebDAVSyncSettingTab
-export type NutstoreSettingTab = WebDAVSyncSettingTab

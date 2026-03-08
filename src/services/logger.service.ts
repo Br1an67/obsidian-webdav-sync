@@ -1,12 +1,12 @@
 import { moment } from 'obsidian'
 import { IN_DEV } from '~/consts'
 import logger from '~/utils/logger'
-import NutstorePlugin from '..'
+import WebDAVSyncPlugin from '..'
 
 export default class LoggerService {
 	logs: any[] = []
 
-	constructor(private plugin: NutstorePlugin) {
+	constructor(private plugin: WebDAVSyncPlugin) {
 		if (IN_DEV) {
 			logger.addReporter({
 				log: (logObj) => {

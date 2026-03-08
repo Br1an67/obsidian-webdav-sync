@@ -1,12 +1,12 @@
 import { App } from 'obsidian'
-import { NutstoreSettingTab } from '.'
-import NutstorePlugin from '..'
+import { WebDAVSyncSettingTab } from '.'
+import WebDAVSyncPlugin from '..'
 
 export default abstract class BaseSettings {
 	constructor(
 		protected app: App,
-		protected plugin: NutstorePlugin,
-		protected settings: NutstoreSettingTab,
+		protected plugin: WebDAVSyncPlugin,
+		protected settings: WebDAVSyncSettingTab,
 		protected containerEl: HTMLElement,
 	) {}
 

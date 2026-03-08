@@ -1,5 +1,5 @@
 import { App, Modal } from 'obsidian'
-import NutstorePlugin from '..'
+import WebDAVSyncPlugin from '..'
 
 import { mount as mountWebDAVExplorer } from 'webdav-explorer'
 import { getDirectoryContents } from '~/api/webdav'
@@ -10,7 +10,7 @@ import { stdRemotePath } from '~/utils/std-remote-path'
 export default class SelectRemoteBaseDirModal extends Modal {
 	constructor(
 		app: App,
-		private plugin: NutstorePlugin,
+		private plugin: WebDAVSyncPlugin,
 		private onConfirm: (path: string) => void,
 	) {
 		super(app)

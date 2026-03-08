@@ -8,7 +8,7 @@ import {
 	UpdateSyncProgress,
 } from '../events'
 import i18n from '../i18n'
-import NutstorePlugin from '../index'
+import WebDAVSyncPlugin from '../index'
 
 export class ProgressService {
 	private progressModal: SyncProgressModal | null = null
@@ -35,7 +35,7 @@ export class ProgressService {
 		}),
 	]
 
-	constructor(private plugin: NutstorePlugin) {}
+	constructor(private plugin: WebDAVSyncPlugin) {}
 
 	updateModal = throttle(() => {
 		if (this.progressModal) {

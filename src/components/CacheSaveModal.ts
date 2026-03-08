@@ -1,13 +1,13 @@
 import { Modal, Setting, moment } from 'obsidian'
 import i18n from '~/i18n'
 import CacheService from '~/services/cache.service.v1'
-import NutstorePlugin from '..'
+import WebDAVSyncPlugin from '..'
 
 export default class CacheSaveModal extends Modal {
 	private cacheService: CacheService
 
 	constructor(
-		private plugin: NutstorePlugin,
+		private plugin: WebDAVSyncPlugin,
 		private remoteCacheDir: string,
 		private onSuccess?: () => void,
 	) {

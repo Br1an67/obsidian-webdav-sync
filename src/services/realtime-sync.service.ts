@@ -2,7 +2,7 @@ import { debounce } from 'lodash-es'
 import { useSettings } from '~/settings'
 import { SyncStartMode } from '~/sync'
 import waitUntil from '~/utils/wait-until'
-import NutstorePlugin from '..'
+import WebDAVSyncPlugin from '..'
 import type SyncExecutorService from './sync-executor.service'
 
 export default class RealtimeSyncService {
@@ -21,7 +21,7 @@ export default class RealtimeSyncService {
 	private submitSyncRequest = debounce(this.submitDirectly, 8000)
 
 	constructor(
-		private plugin: NutstorePlugin,
+		private plugin: WebDAVSyncPlugin,
 		private syncExecutor: SyncExecutorService,
 	) {
 		this.plugin.registerEvent(

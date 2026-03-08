@@ -1,7 +1,7 @@
 import { chunk, debounce, isNil } from 'lodash-es'
 import { Vault } from 'obsidian'
 import { emitSyncUpdateMtimeProgress } from '~/events'
-import { WebDAVFileSystem } from '~/fs/nutstore'
+import { WebDAVFileSystem } from '~/fs/webdav'
 import { syncRecordKV } from '~/storage'
 import { blobStore } from '~/storage/blob'
 import { SyncRecord } from '~/storage/sync-record'

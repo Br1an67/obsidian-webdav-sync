@@ -1,11 +1,11 @@
 import { SyncRecord } from '~/storage/sync-record'
 import { MaybePromise } from '~/utils/types'
-import { NutstoreSync } from '..'
+import { WebDAVSync } from '..'
 import { BaseTask } from '../tasks/task.interface'
 
 export default abstract class BaseSyncDecider {
 	constructor(
-		protected sync: NutstoreSync,
+		protected sync: WebDAVSync,
 		protected syncRecordStorage: SyncRecord,
 	) {}
 

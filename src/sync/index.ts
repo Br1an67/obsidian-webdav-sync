@@ -16,7 +16,7 @@ import {
 } from '~/events'
 import IFileSystem from '~/fs/fs.interface'
 import { LocalVaultFileSystem } from '~/fs/local-vault'
-import { WebDAVFileSystem } from '~/fs/nutstore'
+import { WebDAVFileSystem } from '~/fs/webdav'
 import i18n from '~/i18n'
 import { syncRecordKV } from '~/storage'
 import { SyncRecord } from '~/storage/sync-record'
@@ -46,7 +46,7 @@ export enum SyncStartMode {
 	AUTO_SYNC = 'auto_sync',
 }
 
-export class NutstoreSync {
+export class WebDAVSync {
 	remoteFs: IFileSystem
 	localFS: IFileSystem
 	isCancelled: boolean = false

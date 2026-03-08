@@ -10,7 +10,7 @@ import { SyncMode } from './index'
 import BaseSettings from './settings.base'
 
 /**
- * https://help.jianguoyun.com/?p=2064
+ * WebDAV max file size (500MB)
  */
 const MAX_FILE_SIZE = '500MB'
 const MAX_BYTES = bytesParse(MAX_FILE_SIZE, { mode: 'jedec' })!
